@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Weather API</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <script defer src="https://data.api.xweather.com/conditions/:auto?format=json&plimit=1&filter=1min&fields=loc,periods.tempF,periods.dateTimeISO,periods.humidity,periods.dewpointF,periods.windSpeedMPH,periods.windDir,periods.weather,periods.feelslikeF&client_id=V6SaaTEy032MzfB2TaXvk&client_secret=t9VMNHvOSoPWxG90Oi4Goo4GPwSLfW2Hp72gcTQm"></script>
+
+</head>
+<body>
+
+    <script>
+    window.addEventListener('load', () => {
+
+        const aeris = new AerisWeather('V6SaaTEy032MzfB2TaXvk', 't9VMNHvOSoPWxG90Oi4Goo4GPwSLfW2Hp72gcTQm');
+
+        const request = 
+			.format('json')
+			.plimit(1)
+			.filter('1min')
+			.fields('loc,periods.tempF,periods.dateTimeISO,periods.humidity,periods.dewpointF,periods.windSpeedMPH,periods.windDir,periods.weather,periods.feelslikeF');
+        request.get().then((result) => {
+            console.log(result);
+        });
+    });
+    </script>
+
+</body>
+</html>
